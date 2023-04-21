@@ -13,7 +13,8 @@ public class OrderPositiveFlow extends BasePageFirefoxSetup {
     OrderFormForWhomScooterFill orderFormForWhomScooterFill = new OrderFormForWhomScooterFill();
     @Test
     public void OrderFormForWhomScooterNextButtonClickOpensFormAbout(){
-
+        OrderFormForWhomScooterFill orderFormForWhomScooterFill = new OrderFormForWhomScooterFill();
+        orderFormForWhomScooterFill.ForWhomScooterFillClickNext();
     }
 
 }

@@ -27,7 +27,7 @@ public class OrderFormForWhomScooterFill {
 
 
 
-    public void ForWhomScooterFill () {
+    public void ForWhomScooterFillClickNext () {
     orderFormNameField.click();
     orderFormNameField.sendKeys("Павел");
 
