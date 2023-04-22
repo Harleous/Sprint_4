@@ -7,6 +7,9 @@ import pageobject.Basepage.BasePage;
 
 import java.util.List;
 
+import static Constants.Constant.FormFieldsVariables.FAMILYNAME_OF_SCOO_RENTER;
+import static Constants.Constant.FormFieldsVariables.NAME_OF_SCOO_RENTER;
+
 
 public class OrderFormForWhomScooterFill extends BasePage {
 
@@ -28,17 +31,17 @@ public class OrderFormForWhomScooterFill extends BasePage {
 
 
     public void ForWhomScooterFillClickNext () {
-    orderFormNameField.click();
-    orderFormNameField.sendKeys("Павел");
+    driver.findElement(orderFormNameField).click();
+        driver.findElement(orderFormNameField).sendKeys(NAME_OF_SCOO_RENTER);
 
-    orderFormFamilyNameField.click();
-    orderFormFamilyNameField.sendKeys("Лапин");
+        driver.findElement(orderFormFamilyNameField).click();
+        driver.findElement(orderFormFamilyNameField).sendKeys(FAMILYNAME_OF_SCOO_RENTER);
 
-    orderFormAddressField.click();
-    orderFormAddressField.sendKeys("Василькова 6");
+        driver.findElement(orderFormAddressField).click();
+        driver.findElement(orderFormAddressField).sendKeys("Василькова 6");
 
-    orderFormMetroStationField.click();
-    getOrderFormMetroStationFieldInput.sendKeys("Мол");
+        driver.findElement(orderFormMetroStationField).click();
+        driver.findElement(getOrderFormMetroStationFieldInput).sendKeys("Мол");
 
    List<WebElement> metroStations = driver.findElements(By.xpath(".//div[@class = Order_Filled__3GNlS]/div[@class = select-search has-focus]/div[@class = select-search__value]//li[@Class = select-search__row]"));
 for (WebElement chosenMetrostation : metroStations){
@@ -46,10 +49,10 @@ for (WebElement chosenMetrostation : metroStations){
         chosenMetrostation.click();
         break;
        }
-    orderFormTelephoneNumberField.click();
-    orderFormTelephoneNumberField.sendKeys("12345678910");
+    driver.findElement(orderFormTelephoneNumberField).click();
+    driver.findElement(orderFormTelephoneNumberField).sendKeys("12345678910");
 
-    orderFormForWhomeScooterNextButton.click();
+    driver.findElement(orderFormForWhomeScooterNextButton).click();
     }
 }
 
