@@ -21,8 +21,8 @@ public class OrderFormForWhomScooterFill extends BasePage {
     private final By orderFormNameField = By.xpath(".//div[@class = 'Order_Form__17u6u']/div[@class = 'Input_InputContainer__3NykH']/input[@placeholder='* Имя']");
     private final By orderFormFamilyNameField = By.xpath(".//div[@class = 'Order_Form__17u6u']/div[@class ='Input_InputContainer__3NykH']/input[@placeholder='* Фамилия']");
     private final By orderFormAddressField = By.xpath(".//div[@class = 'Order_Form__17u6u']/div[@class = 'Input_InputContainer__3NykH']/input[@placeholder='* Адрес: куда привезти заказ']");
-    private final By orderFormMetroStationField = By.xpath();
-    private final By getOrderFormMetroStationFieldInput = By.xpath(".//div[@class = 'Order_Form__17u6u']/div[@class = 'Input_InputContainer__3NykH']/input[@placeholder='* Адрес: куда привезти заказ']");
+    private final By orderFormMetroStationField = By.xpath(".//div[@class = 'Order_Filled__3GNlS']");
+    private final By orderFormMetroStationFieldInput = By.xpath(".//div[@class = 'select-search has-focus']/div[@class = 'select-search__value'/input[@class = 'select-search__input']");
 
     private final By orderFormTelephoneNumberField = By.xpath(".//div[@class = 'Order_Form__17u6u']/div[@class = 'select-search__value']/input[@placeholder='* Телефон: на него позвонит курьер']");
     private final By orderFormForWhomeScooterNextButton = By.xpath(".//div[@class = 'Order_NextButton__1_rCA']/button[@class = 'Button_Button__ra12g Button_Middle__1CSJM']");
@@ -41,9 +41,9 @@ public class OrderFormForWhomScooterFill extends BasePage {
         driver.findElement(orderFormAddressField).sendKeys("Василькова 6");
 
         driver.findElement(orderFormMetroStationField).click();
-        driver.findElement(getOrderFormMetroStationFieldInput).sendKeys("Мол");
+        driver.findElement(orderFormMetroStationFieldInput).sendKeys("Мол");
 
-   List<WebElement> metroStations = driver.findElements(By.xpath(".//div[@class = Order_Filled__3GNlS]/div[@class = select-search has-focus]/div[@class = select-search__value]//li[@Class = select-search__row]"));
+   List<WebElement> metroStations = driver.findElements(By.xpath(".//div[@class = Order_Filled__3GNlS]/div[@class = select-search has-focus]/div[@class = select-search__value]//li[@Class = select-search__row]/button [@class = 'Order_SelectOption__82bhS select-search__option']/div[@class = 'Order_Text__2broi']"));
 for (WebElement chosenMetrostation : metroStations){
     if (chosenMetrostation.getText() == "Молодёжная"){
         chosenMetrostation.click();
