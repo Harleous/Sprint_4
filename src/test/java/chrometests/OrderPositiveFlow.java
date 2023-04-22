@@ -1,9 +1,9 @@
 package chrometests;
 
 import org.openqa.selenium.WebDriver;
-import pageobject.BasePageChromeSetup;
+import pageobject.Basepage.BasePage;
 
-public class OrderPositiveFlow extends BasePageChromeSetup {
+public class OrderPositiveFlow extends BasePage {
     public OrderPositiveFlow(WebDriver driver) {
         super(driver);
     }

@@ -1,10 +1,10 @@
 package firefoxtests;
 
-import org.openqa.selenium.WebDriver;
-import pageobject.BasePageFirefoxSetup;
+import baseTest.BaseTest;
 
-public class HomePageFaqAnswerTextAppear extends BasePageFirefoxSetup {
-    public HomePageFaqAnswerTextAppear(WebDriver driver) {
-        super(driver);
+public class HomePageFaqAnswerTextAppear extends BaseTest {
+    public HomePageFaqAnswerTextAppear(){
     }
-}
+
+    }
+
