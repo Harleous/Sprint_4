@@ -55,12 +55,7 @@ public class HomePageFaqAnswerTextAppearFirefox {
         FirefoxOptions options = new FirefoxOptions();
                driver = new FirefoxDriver(options);
                 driver.get("https://qa-scooter.praktikum-services.ru");
-            /*new WebDriverWait(driver, Duration.ofSeconds(10))
-                    .until(ExpectedConditions.visibilityOf( driver.findElement(By.xpath(".//div[@class = 'accordion']"))));
-*/
-
-
-    }
+               }
 
 
     @Test
@@ -77,7 +72,7 @@ public class HomePageFaqAnswerTextAppearFirefox {
         elementsItem.click();
 
 
-
+        //Специально оставляю такой вариант, а не List, чтобы услышать мнение по поводу такой версии кода
         var panelId = "accordion__panel-" + panelNumber;
         WebElement panel = By.id(panelId).findElement(driver);
         assertEquals(result, panel.isDisplayed());
