@@ -10,7 +10,11 @@ public class Constant {
         public static final String NAME_OF_SCOO_RENTER = "Павел";
         public static final String FAMILYNAME_OF_SCOO_RENTER = "Лапин";
         public static final String ADDRESS_OF_SCOO_RENTER = "Васильева 5";
-        public static final String LETTERS_BEGINNING_OF_METRO_STATION = "Мол";
+        //- для доработки механизма поиска станций по начальным буквам
+        //public static final String LETTERS_BEGINNING_OF_METRO_STATION = "Мол";
         public static final String TELEPHONE_NUMBER_OF_SCOO_RENTER = "12345678901";
+        public static final String RENTAL_DATE = "01.01.2025";
+        public final static String COMMENTS_FOR_COURIER = "Очень хочется покататься! :)";
+        public final static String ORDER_MADE_TEXT = "Заказ оформлен";
     }
 }

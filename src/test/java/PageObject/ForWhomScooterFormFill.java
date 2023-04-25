@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static Constants.Constant.FormFieldsVariables.*;
 
 
-public class OrderFormForWhomScooterFill  {
+public class ForWhomScooterFormFill {
 WebDriver driver;
-    public OrderFormForWhomScooterFill (WebDriver driver) {
+    public ForWhomScooterFormFill(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -37,9 +37,6 @@ WebDriver driver;
         driver.findElement(orderFormAddressField).click();
         driver.findElement(orderFormAddressField).sendKeys(ADDRESS_OF_SCOO_RENTER);
 
-        //driver.findElement(orderFormMetroStationField).click();
-        //driver.findElement(orderFormMetroStationFieldInput).sendKeys(LETTERS_BEGINNING_OF_METRO_STATION);
-        //findMetroStatinByChars.chooseMetroStation();
         driver.findElement(orderFormMetroStationField).click();
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(driver.findElement(orderFormMetroStationFieldInput)));
         driver.findElement(orderFormMetroStationFieldInput).sendKeys("Молодёжная");

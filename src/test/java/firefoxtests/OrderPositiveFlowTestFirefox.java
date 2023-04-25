@@ -1,14 +1,19 @@
 package firefoxtests;
 
 
+import PageObject.AboutRentFormFill;
+import PageObject.ForWhomScooterFormFill;
 import PageObject.HomePageScooter;
-import PageObject.OrderFormForWhomScooterFill;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
+import static Constants.Constant.FormFieldsVariables.ORDER_MADE_TEXT;
+import static PageObject.AboutRentFormFill.orderMadeText;
 
 
 public class OrderPositiveFlowTestFirefox {
@@ -27,19 +32,30 @@ public void setUp(){
     homePageScooter.coockieButtonClick();
 }
      HomePageScooter homePageScooter = new HomePageScooter(driver);
-     OrderFormForWhomScooterFill orderFormForWhomScooterFill = new OrderFormForWhomScooterFill(driver);
+     ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill(driver);
+     AboutRentFormFill aboutRentFormFill =new AboutRentFormFill(driver);
+
     @Test
     public void checkRedirectFromUpperButtonAndFillForm(){
 
         homePageScooter.upperOrderButtonClick();
 
-        orderFormForWhomScooterFill.ForWhomScooterFillClickNext();
+        forWhomScooterFormFill.ForWhomScooterFillClickNext();
+        aboutRentFormFill.AboutRentFormFillAndClickOrederButton();
+        aboutRentFormFill.OrderMadeGetTex();
+        Assert.assertTrue(orderMadeText.contains(ORDER_MADE_TEXT));
+
 
     }
+
     @Test
     public void checkRedirectFromLowerButtonAndFillForm(){
         homePageScooter.lowerOrderButtonClick();
-        orderFormForWhomScooterFill.ForWhomScooterFillClickNext();
+        forWhomScooterFormFill.ForWhomScooterFillClickNext();
+        aboutRentFormFill.AboutRentFormFillAndClickOrederButton();
+        aboutRentFormFill.OrderMadeGetTex();
+        Assert.assertTrue(orderMadeText.contains(ORDER_MADE_TEXT));
+
     }
     @After
     public void tearDown(){
