@@ -35,6 +35,8 @@ public class HomePageFaqAnswerTextAppearFirefox {
         this.panelText = panelText;
         this.result = result;
     }
+    //Локатор для поиска элементов Аккордиона с FAQ
+    private final By accordionElement = By.xpath(".//div[@class = 'accordion__item']");
     @Parameterized.Parameters
     public static Object[][] openFaqAnswer() {
         return new Object[][] {
@@ -63,7 +65,7 @@ public class HomePageFaqAnswerTextAppearFirefox {
 
 
 
-        List<WebElement> elements = driver.findElements(By.xpath(".//div[@class = 'accordion__item']"));
+        List<WebElement> elements = driver.findElements(accordionElement);
         WebElement elementsItem = elements.get(index);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",
                 elementsItem);
@@ -72,9 +74,10 @@ public class HomePageFaqAnswerTextAppearFirefox {
         elementsItem.click();
 
 
-        //Специально оставляю такой вариант, а не List, чтобы услышать мнение по поводу такой версии кода
+        //Специально оставляю такой вариант, а не List, чтобы услышать мнение по поводу такой версии кода. Она прекрасно работает и даже немного короче.
         var panelId = "accordion__panel-" + panelNumber;
         WebElement panel = By.id(panelId).findElement(driver);
+
         assertEquals(result, panel.isDisplayed());
         assertEquals(panelText, panel.getText());
 
