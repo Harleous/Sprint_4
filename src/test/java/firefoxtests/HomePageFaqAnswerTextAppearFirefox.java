@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+import static Constants.Constant.Locators.ACCORDION_ELEMENT;
+import static Constants.Constant.Locators.PANEL_ELEMENT_LOCATOR;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
@@ -35,8 +36,8 @@ public class HomePageFaqAnswerTextAppearFirefox {
         this.panelText = panelText;
         this.result = result;
     }
-    //Локатор для поиска элементов Аккордиона с FAQ
-    private final By accordionElement = By.xpath(".//div[@class = 'accordion__item']");
+
+
     @Parameterized.Parameters
     public static Object[][] openFaqAnswer() {
         return new Object[][] {
@@ -65,7 +66,7 @@ public class HomePageFaqAnswerTextAppearFirefox {
 
 
 
-        List<WebElement> elements = driver.findElements(accordionElement);
+        List<WebElement> elements = driver.findElements(ACCORDION_ELEMENT);
         WebElement elementsItem = elements.get(index);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",
                 elementsItem);
@@ -74,9 +75,9 @@ public class HomePageFaqAnswerTextAppearFirefox {
         elementsItem.click();
 
 
-        //Специально оставляю такой вариант, а не List, чтобы услышать мнение по поводу такой версии кода. Она прекрасно работает и даже немного короче.
-        var panelId = "accordion__panel-" + panelNumber;
-        WebElement panel = By.id(panelId).findElement(driver);
+
+        List<WebElement> panelId = driver.findElements(PANEL_ELEMENT_LOCATOR);
+        WebElement panel = panelId.get(panelNumber);
 
         assertEquals(result, panel.isDisplayed());
         assertEquals(panelText, panel.getText());

@@ -1,6 +1,12 @@
 package Constants;
 
+import org.openqa.selenium.By;
+
 public class Constant {
+    public static class Locators {
+        public static final By ACCORDION_ELEMENT = By.xpath(".//div[@class = 'accordion__item']");
+        public static final By PANEL_ELEMENT_LOCATOR = By.xpath(".//div[@class = 'accordion__panel']");
+    }
 
     /*public static class Urls {
         public static final String YA_SCOOTER_HOME_PAGE = "https://qa-scooter.praktikum-services.ru/";
