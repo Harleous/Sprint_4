@@ -10,26 +10,23 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import static Constants.Constant.FormFieldsVariables.ORDER_MADE_TEXT;
+import static Constants.Constant.Urls.YA_SCOOTER_HOME_PAGE;
 import static PageObject.AboutRentFormFill.orderMadeText;
 
 
 public class OrderPositiveFlowTest extends BaseTest {
-
-    public OrderPositiveFlowTest(WebDriver driver) {
-        super();
-    }
-
-
-
-
-     HomePageScooter homePageScooter = new HomePageScooter();
+public WebDriver driver;
+public OrderPositiveFlowTest(WebDriver driver) {
+    this.driver = driver;
+}
+        HomePageScooter homePageScooter = new HomePageScooter();
      ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill();
      AboutRentFormFill aboutRentFormFill =new AboutRentFormFill();
 
 
     @Test
     public void checkRedirectFromUpperButtonAndFillForm(){
-
+        driver.get(YA_SCOOTER_HOME_PAGE);
         homePageScooter.upperOrderButtonClick();
 
         forWhomScooterFormFill.ForWhomScooterFillClickNext();

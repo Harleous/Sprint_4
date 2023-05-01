@@ -10,20 +10,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import static Constants.Constant.Locators.BROWSER_IN_USE;
-import static Constants.Constant.Urls.YA_SCOOTER_HOME_PAGE;
 
 
 public class BaseTest {
-    public WebDriver driver;
-    public BaseTest() {
-        this.driver = chooseDriver();
-    }
+public WebDriver driver;
 
     @Before
-    public static  WebDriver  chooseDriver(){
-
-        WebDriver driver = null;
-
+    public  void WebDriver (){
+WebDriver driver;
         switch (BROWSER_IN_USE){
             case "Firefox" :
                 FirefoxOptions options = new FirefoxOptions();
@@ -40,10 +34,9 @@ public class BaseTest {
 
         }
 
-        driver.get(YA_SCOOTER_HOME_PAGE);
 
 
-        return driver;
+
     }
 
 

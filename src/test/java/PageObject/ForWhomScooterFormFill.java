@@ -1,6 +1,5 @@
 package PageObject;
 
-import baseTestPage.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +9,7 @@ import static Constants.Constant.FormFieldsVariables.*;
 
 
 public class ForWhomScooterFormFill  {
-private WebDriver driver = BaseTest.chooseDriver();;
+public WebDriver driver;
 
     //Локатор поля "Имя" в форме "Для кого самокат"
     private final By orderFormNameField = By.xpath(".//div[@class = 'Order_Form__17u6u']/div[@class = 'Input_InputContainer__3NykH']/input[@placeholder='* Имя']");

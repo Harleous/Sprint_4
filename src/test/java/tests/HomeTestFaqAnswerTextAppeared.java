@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class HomeTestFaqAnswerTextAppeared extends BaseTest {
-    //WebDriver driver;
+    WebDriver driver;
 
     private final int index;
     private final int panelNumber;
@@ -25,9 +26,9 @@ public class HomeTestFaqAnswerTextAppeared extends BaseTest {
     private final boolean result;
 
 
-    public HomeTestFaqAnswerTextAppeared( int index, int panelNumber, String panelText, boolean result) {
-        super();
-        this.index = index;
+    public HomeTestFaqAnswerTextAppeared(WebDriver driver, int index, int panelNumber, String panelText, boolean result) {
+        this.driver = driver;
+                this.index = index;
         this.panelNumber = panelNumber;
         this.panelText = panelText;
         this.result = result;

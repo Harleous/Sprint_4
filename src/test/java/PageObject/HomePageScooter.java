@@ -1,11 +1,10 @@
 package PageObject;
 
-import baseTestPage.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePageScooter {
-    private WebDriver driver = BaseTest.chooseDriver();
+    public WebDriver driver;
 
     //Верхняя кнопка "Заказать"
     private final By upperOrderButton = By.xpath(".//div[(@class = 'Header_Nav__AGCXC')]/button[@class = 'Button_Button__ra12g']");
