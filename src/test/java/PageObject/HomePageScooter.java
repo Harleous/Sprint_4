@@ -1,10 +1,11 @@
 package PageObject;
 
+import baseTestPage.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePageScooter {
-    WebDriver driver;
+    private WebDriver driver = BaseTest.chooseDriver();
 
     //Верхняя кнопка "Заказать"
     private final By upperOrderButton = By.xpath(".//div[(@class = 'Header_Nav__AGCXC')]/button[@class = 'Button_Button__ra12g']");
@@ -13,9 +14,13 @@ public class HomePageScooter {
     // Кнопка закрывания куки "Да все привыкли"
     private final By coockieButton = By.className("App_CookieButton__3cvqF");
 
-    public HomePageScooter(WebDriver   driver) {
+
+
+
+
+    /*public HomePageScooter(WebDriver   driver) {
         this.driver = driver;
-    }
+    }*/
 
     public void coockieButtonClick(){
         driver.findElement(coockieButton).click();

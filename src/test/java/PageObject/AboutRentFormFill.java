@@ -1,5 +1,6 @@
 package PageObject;
 
+import baseTestPage.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,11 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static Constants.Constant.FormFieldsVariables.COMMENTS_FOR_COURIER;
 import static Constants.Constant.FormFieldsVariables.RENTAL_DATE;
 
-public class AboutRentFormFill {
-    WebDriver driver;
-    public AboutRentFormFill(WebDriver driver) {
-        this.driver = driver;
-    }
+public class AboutRentFormFill  {
+    public WebDriver driver = BaseTest.chooseDriver();
+
     //Локатор поля "Когда привезти самокат" в форме "Про аренду"
     private final By rentalDate = By.xpath(".//div[@class = 'react-datepicker__input-container']/input[@placeholder = '* Когда привезти самокат']");
     //Локатор поля "Срок аренды" в форме "Про аренду"
@@ -38,7 +37,9 @@ public class AboutRentFormFill {
     private final By orderMade = By.className("Order_ModalHeader__3FDaJ");
 
 
-public void AboutRentFormFillAndClickOrederButton(){
+
+
+ public void AboutRentFormFillAndClickOrederButton(){
     //Вводим дату аренды
     driver.findElement(rentalDate).sendKeys(RENTAL_DATE, Keys.ENTER);
     //Выбираем срок аренды

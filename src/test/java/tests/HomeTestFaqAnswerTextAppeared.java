@@ -1,32 +1,23 @@
-package chrometests;
+package tests;
 
-import basesPage.BaseTest;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
+import baseTestPage.BaseTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+import static Constants.Constant.Locators.ACCORDION_ELEMENT;
+import static Constants.Constant.Locators.PANEL_ELEMENT_LOCATOR;
 import static org.junit.Assert.assertEquals;
-import static org.openqa.selenium.By.id;
-
 
 @RunWith(Parameterized.class)
-public class HomeTestFaqAnswerTextAppearChrome extends BaseTest {
-
-
-    WebDriver driver;
+public class HomeTestFaqAnswerTextAppeared extends BaseTest {
+    //WebDriver driver;
 
     private final int index;
     private final int panelNumber;
@@ -34,16 +25,18 @@ public class HomeTestFaqAnswerTextAppearChrome extends BaseTest {
     private final boolean result;
 
 
-    public HomeTestFaqAnswerTextAppearChrome(int index, int panelNumber, String panelText, boolean result) {
+    public HomeTestFaqAnswerTextAppeared( int index, int panelNumber, String panelText, boolean result) {
+        super();
         this.index = index;
         this.panelNumber = panelNumber;
         this.panelText = panelText;
         this.result = result;
     }
 
+
     @Parameterized.Parameters
     public static Object[][] openFaqAnswer() {
-        return new Object[][]{
+        return new Object[][] {
 
                 {0, 0,"Сутки — 400 рублей. Оплата курьеру — наличными или картой.", true},
                 {1, 1,"Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.", true},
@@ -56,23 +49,13 @@ public class HomeTestFaqAnswerTextAppearChrome extends BaseTest {
         };
     }
 
-    @Before
-    public void openPage() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-
-
-    }
-
 
     @Test
     public void mainPage_fAQ_checkText() {
 
-        List<WebElement> elements = driver.findElements(By.xpath(".//div[@class = 'accordion__item']"));
+
+
+        List<WebElement> elements = driver.findElements(ACCORDION_ELEMENT);
         WebElement elementsItem = elements.get(index);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",
                 elementsItem);
@@ -82,14 +65,16 @@ public class HomeTestFaqAnswerTextAppearChrome extends BaseTest {
 
 
 
-        var panelId =  "accordion__panel-" + panelNumber;
+        List<WebElement> panelId = driver.findElements(PANEL_ELEMENT_LOCATOR);
+        WebElement panel = panelId.get(panelNumber);
 
-        WebElement panel = id(panelId).findElement(driver);
         assertEquals(result, panel.isDisplayed());
         assertEquals(panelText, panel.getText());
+
+
     }
-    @After
-    public void tearDown(){
-        driver.quit();
-    }
+
 }
+
+
+

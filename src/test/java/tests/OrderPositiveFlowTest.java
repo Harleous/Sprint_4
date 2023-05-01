@@ -1,25 +1,31 @@
-package chrometests;
+package tests;
+
 
 import PageObject.AboutRentFormFill;
 import PageObject.ForWhomScooterFormFill;
 import PageObject.HomePageScooter;
-import basesPage.BaseTest;
+import baseTestPage.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import static Constants.Constant.FormFieldsVariables.ORDER_MADE_TEXT;
 import static PageObject.AboutRentFormFill.orderMadeText;
 
-public class OrderPositiveFlowTestChrome extends BaseTest {
+
+public class OrderPositiveFlowTest extends BaseTest {
+
+    public OrderPositiveFlowTest(WebDriver driver) {
+        super();
+    }
 
 
 
-    HomePageScooter homePageScooter = new HomePageScooter(driver);
-    ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill(driver);
-    AboutRentFormFill aboutRentFormFill =new AboutRentFormFill(driver);
+
+     HomePageScooter homePageScooter = new HomePageScooter();
+     ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill();
+     AboutRentFormFill aboutRentFormFill =new AboutRentFormFill();
+
 
     @Test
     public void checkRedirectFromUpperButtonAndFillForm(){

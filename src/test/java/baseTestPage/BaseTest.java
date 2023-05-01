@@ -1,6 +1,5 @@
-package basesPage;
+package baseTestPage;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,10 +14,14 @@ import static Constants.Constant.Urls.YA_SCOOTER_HOME_PAGE;
 
 
 public class BaseTest {
-    WebDriver driver;
+    public WebDriver driver;
+    public BaseTest() {
+        this.driver = chooseDriver();
+    }
 
     @Before
-    public static WebDriver chooseDriver() {
+    public static  WebDriver  chooseDriver(){
+
         WebDriver driver = null;
 
         switch (BROWSER_IN_USE){
@@ -29,19 +32,20 @@ public class BaseTest {
                 break;
             case "Chrome" :
                 ChromeOptions chromeOptions = new ChromeOptions();
-                 driver = new ChromeDriver(chromeOptions);
+                driver = new ChromeDriver(chromeOptions);
                 break;
             default:
                 Assert.fail("Неправильное имя  браузера: " + BROWSER_IN_USE );
 
 
         }
-        public static  void openPage(){
 
-            driver.get(YA_SCOOTER_HOME_PAGE);
+        driver.get(YA_SCOOTER_HOME_PAGE);
 
-        }
+
+        return driver;
     }
+
 
     @After
     public void tearDown(){
