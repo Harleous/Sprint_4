@@ -4,9 +4,8 @@ package firefoxtests;
 import PageObject.AboutRentFormFill;
 import PageObject.ForWhomScooterFormFill;
 import PageObject.HomePageScooter;
-import org.junit.After;
+import basesPage.BaseTest;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,21 +15,15 @@ import static Constants.Constant.FormFieldsVariables.ORDER_MADE_TEXT;
 import static PageObject.AboutRentFormFill.orderMadeText;
 
 
-public class OrderPositiveFlowTestFirefox {
+public class OrderPositiveFlowTestFirefox extends BaseTest {
 
-    FirefoxOptions options = new FirefoxOptions();
+    /*FirefoxOptions options = new FirefoxOptions();
 
-    WebDriver driver = new FirefoxDriver(options);
-
-
-@Before
-public void setUp(){
+    WebDriver driver = new FirefoxDriver(options);*/
 
 
 
-    driver.get("https://qa-scooter.praktikum-services.ru");
-    homePageScooter.coockieButtonClick();
-}
+
      HomePageScooter homePageScooter = new HomePageScooter(driver);
      ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill(driver);
      AboutRentFormFill aboutRentFormFill =new AboutRentFormFill(driver);
@@ -57,10 +50,7 @@ public void setUp(){
         Assert.assertTrue(orderMadeText.contains(ORDER_MADE_TEXT));
 
     }
-    @After
-    public void tearDown(){
-        driver.quit();
-}
+
 }
 
 

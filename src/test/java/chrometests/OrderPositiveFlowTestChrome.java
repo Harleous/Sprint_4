@@ -3,9 +3,8 @@ package chrometests;
 import PageObject.AboutRentFormFill;
 import PageObject.ForWhomScooterFormFill;
 import PageObject.HomePageScooter;
-import org.junit.After;
+import basesPage.BaseTest;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,16 +13,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static Constants.Constant.FormFieldsVariables.ORDER_MADE_TEXT;
 import static PageObject.AboutRentFormFill.orderMadeText;
 
-public class OrderPositiveFlowTestChrome {
+public class OrderPositiveFlowTestChrome extends BaseTest {
 
-    ChromeOptions options = new ChromeOptions();
-    WebDriver driver = new ChromeDriver(options);
-    @Before
-    public void setUp(){
 
-        driver.get("https://qa-scooter.praktikum-services.ru");
-        homePageScooter.coockieButtonClick();
-    }
+
     HomePageScooter homePageScooter = new HomePageScooter(driver);
     ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill(driver);
     AboutRentFormFill aboutRentFormFill =new AboutRentFormFill(driver);
@@ -50,10 +43,7 @@ public class OrderPositiveFlowTestChrome {
         Assert.assertTrue(orderMadeText.contains(ORDER_MADE_TEXT));
 
     }
-    @After
-    public void tearDown(){
-        driver.quit();
-    }
+
 }
 
 

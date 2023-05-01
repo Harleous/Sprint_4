@@ -1,5 +1,6 @@
 package chrometests;
 
+import basesPage.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
@@ -22,7 +23,7 @@ import static org.openqa.selenium.By.id;
 
 
 @RunWith(Parameterized.class)
-public class HomePageFaqAnswerTextAppearChrome {
+public class HomeTestFaqAnswerTextAppearChrome extends BaseTest {
 
 
     WebDriver driver;
@@ -33,7 +34,7 @@ public class HomePageFaqAnswerTextAppearChrome {
     private final boolean result;
 
 
-    public HomePageFaqAnswerTextAppearChrome(int index, int panelNumber, String panelText, boolean result) {
+    public HomeTestFaqAnswerTextAppearChrome(int index, int panelNumber, String panelText, boolean result) {
         this.index = index;
         this.panelNumber = panelNumber;
         this.panelText = panelText;
@@ -56,7 +57,7 @@ public class HomePageFaqAnswerTextAppearChrome {
     }
 
     @Before
-    public void setUp() {
+    public void openPage() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");

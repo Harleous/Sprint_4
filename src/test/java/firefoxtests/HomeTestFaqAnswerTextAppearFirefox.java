@@ -1,5 +1,6 @@
 package firefoxtests;
 
+import basesPage.BaseTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
@@ -21,7 +22,7 @@ import static Constants.Constant.Locators.PANEL_ELEMENT_LOCATOR;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class HomePageFaqAnswerTextAppearFirefox {
+public class HomeTestFaqAnswerTextAppearFirefox extends BaseTest {
     WebDriver driver;
 
     private final int index;
@@ -30,7 +31,7 @@ public class HomePageFaqAnswerTextAppearFirefox {
     private final boolean result;
 
 
-    public HomePageFaqAnswerTextAppearFirefox(int index, int panelNumber, String panelText, boolean result) {
+    public HomeTestFaqAnswerTextAppearFirefox(int index, int panelNumber, String panelText, boolean result) {
         this.index = index;
         this.panelNumber = panelNumber;
         this.panelText = panelText;
@@ -53,10 +54,8 @@ public class HomePageFaqAnswerTextAppearFirefox {
         };
     }
     @Before
-    public void setUp(){
-        WebDriverManager.firefoxdriver().setup();
-        FirefoxOptions options = new FirefoxOptions();
-               driver = new FirefoxDriver(options);
+    public void openPage(){
+
                 driver.get("https://qa-scooter.praktikum-services.ru");
                }
 
