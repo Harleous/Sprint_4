@@ -11,6 +11,7 @@ import static Constants.Constant.FormFieldsVariables.*;
 public class ForWhomScooterFormFill  {
 public WebDriver driver;
 
+
     //Локатор поля "Имя" в форме "Для кого самокат"
     private final By orderFormNameField = By.xpath(".//div[@class = 'Order_Form__17u6u']/div[@class = 'Input_InputContainer__3NykH']/input[@placeholder='* Имя']");
     //Локатор поля "Фамлия" в форме "Для кого самокат"

@@ -18,16 +18,16 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class HomeTestFaqAnswerTextAppeared extends BaseTest {
-    WebDriver driver;
 
+public WebDriver driver;
     private final int index;
     private final int panelNumber;
     private final String panelText;
     private final boolean result;
 
 
-    public HomeTestFaqAnswerTextAppeared(WebDriver driver, int index, int panelNumber, String panelText, boolean result) {
-        this.driver = driver;
+    public HomeTestFaqAnswerTextAppeared(/*WebDriver driver,*/ int index, int panelNumber, String panelText, boolean result) {
+        /*this.driver = driver;*/
                 this.index = index;
         this.panelNumber = panelNumber;
         this.panelText = panelText;

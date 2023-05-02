@@ -12,6 +12,8 @@ import static Constants.Constant.FormFieldsVariables.RENTAL_DATE;
 public class AboutRentFormFill  {
     public WebDriver driver;
 
+
+
     //Локатор поля "Когда привезти самокат" в форме "Про аренду"
     private final By rentalDate = By.xpath(".//div[@class = 'react-datepicker__input-container']/input[@placeholder = '* Когда привезти самокат']");
     //Локатор поля "Срок аренды" в форме "Про аренду"

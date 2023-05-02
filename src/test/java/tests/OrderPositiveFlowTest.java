@@ -15,11 +15,10 @@ import static PageObject.AboutRentFormFill.orderMadeText;
 
 
 public class OrderPositiveFlowTest extends BaseTest {
-public WebDriver driver;
-public OrderPositiveFlowTest(WebDriver driver) {
-    this.driver = driver;
-}
-        HomePageScooter homePageScooter = new HomePageScooter();
+    public WebDriver driver;
+
+
+     HomePageScooter homePageScooter = new HomePageScooter(driver);
      ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill();
      AboutRentFormFill aboutRentFormFill =new AboutRentFormFill();
 
