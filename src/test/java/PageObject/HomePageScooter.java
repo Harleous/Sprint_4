@@ -3,10 +3,10 @@ package PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePageScooter  {
-    public WebDriver driver;
+public class HomePageScooter extends BasePage  {
+
     public HomePageScooter(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     //Верхняя кнопка "Заказать"

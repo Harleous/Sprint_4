@@ -1,7 +1,6 @@
 package baseTestPage;
 
 import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,19 +14,22 @@ public class BaseTest {
 public  WebDriver driver;
 
 
+    public BaseTest(WebDriver driver) {
+        this.driver = driver;
+    }
 
-    @Before
-    public  void WebDriver (){
+
+    public  static WebDriver chooseDriver (){
 
         switch (BROWSER_IN_USE){
             case "Firefox" :
                 FirefoxOptions options = new FirefoxOptions();
 
-                driver = new FirefoxDriver(options);
+               WebDriver driver = new FirefoxDriver(options);
                 break;
             case "Chrome" :
                 ChromeOptions chromeOptions = new ChromeOptions();
-                driver = new ChromeDriver(chromeOptions);
+                 driver = new ChromeDriver(chromeOptions);
                 break;
             /*default:
                 Assert.fail("Неправильное имя  браузера: " + BROWSER_IN_USE );*/

@@ -8,8 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static Constants.Constant.FormFieldsVariables.*;
 
 
-public class ForWhomScooterFormFill  {
-public WebDriver driver;
+public class ForWhomScooterFormFill extends BasePage {
+        public WebDriver driver;
+    public ForWhomScooterFormFill(WebDriver driver) {
+        super(driver);
+    }
 
 
     //Локатор поля "Имя" в форме "Для кого самокат"

@@ -26,8 +26,8 @@ public WebDriver driver;
     private final boolean result;
 
 
-    public HomeTestFaqAnswerTextAppeared(/*WebDriver driver,*/ int index, int panelNumber, String panelText, boolean result) {
-        /*this.driver = driver;*/
+    public HomeTestFaqAnswerTextAppeared( WebDriver driver, int index, int panelNumber, String panelText, boolean result) {
+        super(driver);
                 this.index = index;
         this.panelNumber = panelNumber;
         this.panelText = panelText;

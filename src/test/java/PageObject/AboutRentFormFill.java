@@ -9,10 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static Constants.Constant.FormFieldsVariables.COMMENTS_FOR_COURIER;
 import static Constants.Constant.FormFieldsVariables.RENTAL_DATE;
 
-public class AboutRentFormFill  {
-    public WebDriver driver;
+public class AboutRentFormFill extends BasePage  {
 
 
+    public AboutRentFormFill(WebDriver driver) {
+        super(driver);
+    }
 
     //Локатор поля "Когда привезти самокат" в форме "Про аренду"
     private final By rentalDate = By.xpath(".//div[@class = 'react-datepicker__input-container']/input[@placeholder = '* Когда привезти самокат']");
@@ -40,7 +42,7 @@ public class AboutRentFormFill  {
 
 
 
- public void AboutRentFormFillAndClickOrederButton(){
+    public void AboutRentFormFillAndClickOrederButton(){
     //Вводим дату аренды
     driver.findElement(rentalDate).sendKeys(RENTAL_DATE, Keys.ENTER);
     //Выбираем срок аренды
