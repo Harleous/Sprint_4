@@ -1,5 +1,6 @@
 package PageObject;
 
+import baseTestPage.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,10 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static Constants.Constant.FormFieldsVariables.COMMENTS_FOR_COURIER;
 import static Constants.Constant.FormFieldsVariables.RENTAL_DATE;
 
-public class AboutRentFormFill extends BasePage  {
-
-
+public class AboutRentFormFill extends BasePage {
     public AboutRentFormFill(WebDriver driver) {
+
         super(driver);
     }
 
@@ -42,7 +42,7 @@ public class AboutRentFormFill extends BasePage  {
 
 
 
-    public void AboutRentFormFillAndClickOrederButton(){
+    public void AboutRentFormFillAndClickOrderButton(){
     //Вводим дату аренды
     driver.findElement(rentalDate).sendKeys(RENTAL_DATE, Keys.ENTER);
     //Выбираем срок аренды
@@ -61,10 +61,9 @@ driver.findElement(buttonYes).click();
 
 //Получаем текст всплывающего окна "Заказ оформлен"
 public static String orderMadeText;
-public  String OrderMadeGetTex(){
+public  void  OrderMadeGetTex(){
     orderMadeText =  driver.findElement(orderMade).getText();
-    return orderMadeText;
-    }
+        }
 
 
 }

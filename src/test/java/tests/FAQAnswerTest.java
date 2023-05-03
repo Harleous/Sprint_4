@@ -1,6 +1,8 @@
 package tests;
 
+import PageObject.HomePageScooter;
 import baseTestPage.BaseTest;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -14,20 +16,22 @@ import java.util.List;
 
 import static Constants.Constant.Locators.ACCORDION_ELEMENT;
 import static Constants.Constant.Locators.PANEL_ELEMENT_LOCATOR;
+import static Constants.Constant.Urls.YA_SCOOTER_HOME_PAGE;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class HomeTestFaqAnswerTextAppeared extends BaseTest {
+public class FAQAnswerTest  {
+WebDriver driver = BaseTest.chooseDriver();
+HomePageScooter homePageScooter = new HomePageScooter(driver);
 
-public WebDriver driver;
     private final int index;
     private final int panelNumber;
     private final String panelText;
     private final boolean result;
 
 
-    public HomeTestFaqAnswerTextAppeared( WebDriver driver, int index, int panelNumber, String panelText, boolean result) {
-        super(driver);
+    public FAQAnswerTest( int index, int panelNumber, String panelText, boolean result) {
+
                 this.index = index;
         this.panelNumber = panelNumber;
         this.panelText = panelText;
@@ -53,9 +57,8 @@ public WebDriver driver;
 
     @Test
     public void mainPage_fAQ_checkText() {
-
-
-
+        driver.get(YA_SCOOTER_HOME_PAGE);
+        homePageScooter.cookieButtonClick();
         List<WebElement> elements = driver.findElements(ACCORDION_ELEMENT);
         WebElement elementsItem = elements.get(index);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",
@@ -74,6 +77,11 @@ public WebDriver driver;
 
 
     }
+    @After
+    public void tearDown(){
+        driver.quit();
+    }
+
 
 }
 

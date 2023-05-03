@@ -5,6 +5,7 @@ import PageObject.AboutRentFormFill;
 import PageObject.ForWhomScooterFormFill;
 import PageObject.HomePageScooter;
 import baseTestPage.BaseTest;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -14,26 +15,24 @@ import static Constants.Constant.Urls.YA_SCOOTER_HOME_PAGE;
 import static PageObject.AboutRentFormFill.orderMadeText;
 
 
-public class OrderPositiveFlowTest extends BaseTest {
-
-
+public class OrderPositiveFlowTest  {
+    WebDriver driver = BaseTest.chooseDriver();
 
      HomePageScooter homePageScooter = new HomePageScooter(driver);
      ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill(driver);
      AboutRentFormFill aboutRentFormFill =new AboutRentFormFill(driver);
 
-    public OrderPositiveFlowTest(WebDriver driver) {
-        super(driver);
-    }
-
 
     @Test
+
     public void checkRedirectFromUpperButtonAndFillForm(){
+
         driver.get(YA_SCOOTER_HOME_PAGE);
+        homePageScooter.cookieButtonClick();
         homePageScooter.upperOrderButtonClick();
 
         forWhomScooterFormFill.ForWhomScooterFillClickNext();
-        aboutRentFormFill.AboutRentFormFillAndClickOrederButton();
+        aboutRentFormFill.AboutRentFormFillAndClickOrderButton();
         aboutRentFormFill.OrderMadeGetTex();
         Assert.assertTrue(orderMadeText.contains(ORDER_MADE_TEXT));
 
@@ -42,14 +41,19 @@ public class OrderPositiveFlowTest extends BaseTest {
 
     @Test
     public void checkRedirectFromLowerButtonAndFillForm(){
+        driver.get(YA_SCOOTER_HOME_PAGE);
+        homePageScooter.cookieButtonClick();
         homePageScooter.lowerOrderButtonClick();
         forWhomScooterFormFill.ForWhomScooterFillClickNext();
-        aboutRentFormFill.AboutRentFormFillAndClickOrederButton();
+        aboutRentFormFill.AboutRentFormFillAndClickOrderButton();
         aboutRentFormFill.OrderMadeGetTex();
         Assert.assertTrue(orderMadeText.contains(ORDER_MADE_TEXT));
 
     }
-
+   @After
+    public void tearDown(){
+        driver.quit();
+    }
 }
 
 

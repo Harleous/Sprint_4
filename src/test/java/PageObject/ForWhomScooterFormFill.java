@@ -1,5 +1,6 @@
 package PageObject;
 
+import baseTestPage.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,11 +10,11 @@ import static Constants.Constant.FormFieldsVariables.*;
 
 
 public class ForWhomScooterFormFill extends BasePage {
-        public WebDriver driver;
-    public ForWhomScooterFormFill(WebDriver driver) {
-        super(driver);
-    }
 
+public ForWhomScooterFormFill(WebDriver driver) {
+
+    super(driver);
+}
 
     //Локатор поля "Имя" в форме "Для кого самокат"
     private final By orderFormNameField = By.xpath(".//div[@class = 'Order_Form__17u6u']/div[@class = 'Input_InputContainer__3NykH']/input[@placeholder='* Имя']");
@@ -31,7 +32,7 @@ public class ForWhomScooterFormFill extends BasePage {
     //Локатор поля "Телефон" в форме "Для кого самокат"
     private final By orderFormTelephoneNumberField = By.xpath(".//div[@class = 'Order_Form__17u6u']/div[@class = 'Input_InputContainer__3NykH']/input[@placeholder='* Телефон: на него позвонит курьер']");
     //Локатор кнопки "Далее" в форме "Для кого самокат"
-    private final By orderFormForWhomeScooterNextButton = By.xpath(".//div[@class = 'Order_NextButton__1_rCA']/button[@class = 'Button_Button__ra12g Button_Middle__1CSJM']");
+    private final By orderFormForWhomScooterNextButton = By.xpath(".//div[@class = 'Order_NextButton__1_rCA']/button[@class = 'Button_Button__ra12g Button_Middle__1CSJM']");
 
 
 
@@ -56,7 +57,7 @@ public class ForWhomScooterFormFill extends BasePage {
         driver.findElement(orderFormTelephoneNumberField).click();
         driver.findElement(orderFormTelephoneNumberField).sendKeys(TELEPHONE_NUMBER_OF_SCOO_RENTER);
      //Нажимаем кнопку "Далее"
-    driver.findElement(orderFormForWhomeScooterNextButton).click();
+    driver.findElement(orderFormForWhomScooterNextButton).click();
     }
 }
 
