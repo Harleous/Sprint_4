@@ -9,8 +9,6 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -63,8 +61,8 @@ HomePageScooter homePageScooter = new HomePageScooter(driver);
         WebElement elementsItem = elements.get(index);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",
                 elementsItem);
-        new WebDriverWait(driver, 10)
-                .until(ExpectedConditions.elementToBeClickable(elementsItem));
+        /*new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.elementToBeClickable(elementsItem));*/
         elementsItem.click();
 
 

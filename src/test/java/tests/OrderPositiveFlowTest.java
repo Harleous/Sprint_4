@@ -18,9 +18,9 @@ import static PageObject.AboutRentFormFill.orderMadeText;
 public class OrderPositiveFlowTest  {
     WebDriver driver = BaseTest.chooseDriver();
 
-     HomePageScooter homePageScooter = new HomePageScooter(driver);
-     ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill(driver);
-     AboutRentFormFill aboutRentFormFill =new AboutRentFormFill(driver);
+    HomePageScooter homePageScooter = new HomePageScooter(driver);
+    ForWhomScooterFormFill forWhomScooterFormFill = new ForWhomScooterFormFill(driver);
+    AboutRentFormFill aboutRentFormFill =new AboutRentFormFill(driver);
 
 
     @Test
@@ -50,7 +50,7 @@ public class OrderPositiveFlowTest  {
         Assert.assertTrue(orderMadeText.contains(ORDER_MADE_TEXT));
 
     }
-   @After
+    @After
     public void tearDown(){
         driver.quit();
     }

@@ -1,5 +1,6 @@
 package baseTestPage;
 
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,7 +19,7 @@ public class BaseTest {
 
 
     public static WebDriver chooseDriver(){
-           WebDriver driver = null;
+        WebDriver driver = null;
         switch (BROWSER_IN_USE){
             case "Firefox" :
                 FirefoxOptions options = new FirefoxOptions();
@@ -34,16 +35,12 @@ public class BaseTest {
 
 
         }
-driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().deleteAllCookies();
-return driver;
+        //driver.manage().deleteAllCookies();
+        return driver;
 
-
-        }
 
     }
 
-
-
-
+}

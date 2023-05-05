@@ -42,7 +42,7 @@ public class AboutRentFormFill extends BasePage {
 
 
 
-    public void AboutRentFormFillAndClickOrderButton(){
+ public void AboutRentFormFillAndClickOrderButton(){
     //Вводим дату аренды
     driver.findElement(rentalDate).sendKeys(RENTAL_DATE, Keys.ENTER);
     //Выбираем срок аренды
@@ -61,9 +61,10 @@ driver.findElement(buttonYes).click();
 
 //Получаем текст всплывающего окна "Заказ оформлен"
 public static String orderMadeText;
-public  void  OrderMadeGetTex(){
+public  String OrderMadeGetTex(){
     orderMadeText =  driver.findElement(orderMade).getText();
-        }
+    return orderMadeText;
+    }
 
 
 }
